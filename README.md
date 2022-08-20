@@ -18,19 +18,19 @@ Tested on Python 3.10.5.
 The required Python dependencies can be installed using `pip install -r requirements.txt`.
 This will install the following modules:
 ```
+opencv-python
 gdspy
-numpy
-opencv
 imutils
+numpy
 ```
 
 Having the datasets in the `data` directory, the `run_XXnm.py` files might be run directly from the shell, e.g.:
 ```
-python run_28.py fill
+python run_28nm.py fill
 ```
 or
 ```
-python run_28.py std
+python run_28nm.py std
 ```
 
 There is also a demo data set (only filler cell detection) already included in this repository, which can be run with:
