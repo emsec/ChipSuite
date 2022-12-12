@@ -1,41 +1,43 @@
-**Some information in this repository as well as this readme is intentionally
-left out as of an anonymous review process.**
-
-This repository contains ready-to-use configuration files for the dataset of
+This repository contains ready-to-use configuration files for the data set of
 our paper (90 nm, 65 nm, 40 nm and 28 nm). These files can simply be run in a
 shell and will output our research results in a convenient HTML document. This
 allows for a direct reproducibility of the studies.
 
 In case the replaced cell instances need to be known for further studies
 without re-running all algorithms, please feel free to contact the authors via
-email **REDACTED**.
+email: Endres Puschner <endres.puschner@mpi-sp.org>
 
 Setup
 =====
 
-Tested on Python 3.10.5.
+Tested on Python 3.10.5 (with gdspy 1.6.11, numpy 1.23.0, cv2 4.6.0 and imutils 0.5.4).
 
 The required Python dependencies can be installed using `pip install -r requirements.txt`.
 This will install the following modules:
+* gdspy
+* numpy
+* opencv-python
+* imutils
+
+The full dataset can be acquired from here:
+* [Edmond (Max Planck Digital Library)](https://edmond.mpdl.mpg.de/dataset.xhtml?persistentId=doi:10.17617/3.396Q7I)
+
+Once downloaded, all zip archives need to be unpacked into the data directory, requiring in total 300.3 GiB free space on the filesystem.
+In case the data directory will be placed somewhere else, the scripts should be run with the working directory set to the directory containing the data directory.
+Another option is to adapt the three paths in the beginning of each `run_XXnm.py` script.
+
+There is also a demo dataset (only filler cell detection) already included in this repository. This could be run with:
 ```
-opencv-python
-gdspy
-imutils
-numpy
+python run_90nm_demo.py fill
 ```
 
-Having the datasets in the `data` directory, the `run_XXnm.py` files might be run directly from the shell, e.g.:
+Having the full datasets in the `data` directory, the `run_XXnm.py` files might be run directly from the shell, e.g.:
 ```
-python run_28nm.py fill
+python run_28.py fill
 ```
 or
 ```
-python run_28nm.py std
-```
-
-There is also a demo data set (only filler cell detection) already included in this repository, which can be run with:
-```
-python run_90nm_demo.py fill
+python run_28.py std
 ```
 
 The resulting data is output in the `output` directory.
@@ -169,8 +171,9 @@ Run the Loop:
   day! ;-) ) let the loop run through all tiles of the chip.
 * To do this, either re-run the python script (best still in interactive mode
   just in case something goes wrong), or run `algorithm.analyze()`.
-* Every time a suspect cell is found, the cell image as well as the black/white
-  thresholded processed image is shown to the user.
+* Depending on the interactive setting of the algorithm object, every time a
+  suspect cell is found, the cell image as well as additional processed images
+  are shown to the user. 
   * In case it was probably only a false positive, press any key but one of
     the following in either of the image windows to close them and to continue
     the loop.
@@ -182,7 +185,15 @@ Run the Loop:
     and to then restart the loop at the current tile, with
     `algorithm.analyze_loop(x, y)` (put the most recent values of the
     "Tile: .." output for x and y)
-* The whole analyze Loop should not take too long on a modern laptop (about 30
-  minutes at 2000 tiles with a resolution of 4k by 4k with a GDS file of
-  400000 bounding boxes).
+* In case the non-interactive mode is chosen (default in the runner scripts),
+  HTML files with all the results will be generated.
+* The whole analyze Loop should not take too long on a modern laptop (for the
+  supplied datasets less than 2 hours per run).
 * Have fun finding the eggs / needle in haystack nearly automatic!
+
+License
+=======
+
+ChipSuite is licensed under MIT License to encourage collaboration with other
+research groups and contributions from the industry. Please refer to the
+license file for further information.

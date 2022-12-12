@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 __version__ = "1.0"
-__author__ = "--REDACTED--"
+__author__ = "Max Planck Institute for Security and Privacy"
+__copyright__ = "(C) 2022 by Max Planck Institute for Security and Privacy"
+__license__ = "MIT License"
 
 from .algorithm import Algorithm
 from .algorithm1 import Algorithm1
