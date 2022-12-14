@@ -3,6 +3,8 @@ our paper (90 nm, 65 nm, 40 nm and 28 nm). These files can simply be run in a
 shell and will output our research results in a convenient HTML document. This
 allows for a direct reproducibility of the studies.
 
+Find our related publication here: https://eprint.iacr.org/2022/1720
+
 In case the replaced cell instances need to be known for further studies
 without re-running all algorithms, please feel free to contact the authors via
 email: Endres Puschner <endres.puschner@mpi-sp.org>
