@@ -3,7 +3,10 @@ our paper (90 nm, 65 nm, 40 nm and 28 nm). These files can simply be run in a
 shell and will output our research results in a convenient HTML document. This
 allows for a direct reproducibility of the studies.
 
-Find our related publication here: https://eprint.iacr.org/2022/1720
+Find our related publication "Red Team vs. Blue Team: A Real-World Hardware
+Trojan Detection Case Study Across Four Modern CMOS Technology Generations"
+here: [ieee](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.00044) /
+[eprint](https://eprint.iacr.org/2022/1720)
 
 In case the replaced cell instances need to be known for further studies
 without re-running all algorithms, please feel free to contact the authors via
@@ -192,6 +195,28 @@ Run the Loop:
 * The whole analyze Loop should not take too long on a modern laptop (for the
   supplied datasets less than 2 hours per run).
 * Have fun finding the eggs / needle in haystack nearly automatic!
+
+Academic Context
+================
+
+If you want to cite the work please don't hesitate to cite the original paper
+([ieee](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.00044) /
+[eprint](http://eprint.iacr.org/2017/783)).
+```latex
+@inproceedings {2023puschner,
+    author = {Endres Puschner and Thorben Moos and Steffen Becker and Christian Kison and Amir Moradi and Christof Paar},
+    booktitle = {2023 IEEE Symposium on Security and Privacy (SP)},
+    title = {Red Team vs. Blue Team: A Real-World Hardware Trojan Detection Case Study Across Four Modern CMOS Technology Generations},
+    year = {2023},
+    pages = {763-781},
+    keywords = {hardware-trojans;very-large-scale-integration;gdsii;integrated-circuits-verification},
+    doi = {10.1109/SP46215.2023.00044},
+    url = {https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.00044},
+    publisher = {IEEE Computer Society},
+    address = {Los Alamitos, CA, USA},
+    month = {may}
+}
+```
 
 License
 =======
