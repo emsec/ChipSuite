@@ -201,7 +201,7 @@ Academic Context
 
 If you want to cite the work please don't hesitate to cite the original paper
 ([ieee](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.00044) /
-[eprint](http://eprint.iacr.org/2017/783)).
+[eprint](http://eprint.iacr.org/2022/1720)).
 ```latex
 @inproceedings {2023puschner,
     author = {Endres Puschner and Thorben Moos and Steffen Becker and Christian Kison and Amir Moradi and Christof Paar},
