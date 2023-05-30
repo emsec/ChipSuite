@@ -112,7 +112,7 @@ class Algorithm(metaclass=abc.ABCMeta):
         return not (self.mode == Algorithm.MODE_DEFAULT or self.mode == Algorithm.MODE_FIND_CELLS or self.mode >= Algorithm.MODE_ONLY_CELLS)
 
 
-    def analyze(self, mode=MODE_DEFAULT, starttime="not set", start=None):
+    def analyze(self, mode=MODE_DEFAULT, starttime="not set", start=None, stop=None):
         self.mode = mode
         if self.is_mode_requiring_a_canvas():
             dimensions = (math.ceil((self.s.st_height+self.s.ph)/self.fract), math.ceil((self.s.st_width+self.s.pw)/self.fract))
@@ -121,9 +121,9 @@ class Algorithm(metaclass=abc.ABCMeta):
             self.html_file = open(os.path.join(self.output_folder, self.html_filename), "w")
             self.html_file.write(f"<!DOCTYPE html><html><head><meta charset=\"utf-8\" /><title>ChipSuite Results of {os.path.basename(__main__.__file__)}</title><style>h2:not(:first-of-type){{page-break-before:always}}</style></head><body><p>Start Time: {starttime}</p>\n")
         if start is None:
-            self.analyze_loop()
+            self.analyze_loop(stop=stop)
         else:
-            self.analyze_loop(start[0], start[1])
+            self.analyze_loop(start[0], start[1], stop=stop)
             self.analyze_loop(0, 0, stop=start)
         if self.html_filename is None:
             print(f"askedCount: {self.asked_count}")
@@ -196,6 +196,7 @@ class Algorithm(metaclass=abc.ABCMeta):
             # do the powerline detection
             power_lines = self.p.detect_powerlines(image_croped)
 
+        highlights = []
         for bxy1, bw, bh, bbox in bboxes_list:
             if filter is not None and filter not in bbox[2]:
                 continue
@@ -284,6 +285,7 @@ class Algorithm(metaclass=abc.ABCMeta):
                     print("VALID")
                     valid_cells += 1
             else:
+                highlights.append(list(bxy1) + list(bxy2))
                 f = f"{self.html_filename}_images"
                 c = f"{x}_{y}_{i}"
                 rf = os.path.join(self.output_folder, f)
@@ -304,6 +306,8 @@ class Algorithm(metaclass=abc.ABCMeta):
                 self.html_file.write("</table>\n")
                 self.html_file.flush()
             i += 1
+        if highlights:
+            self.b.show_boxes(x, y, 1, highlights)
         return False, valid_cells
 
 

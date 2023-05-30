@@ -177,7 +177,7 @@ class BboxGenerator:
         
         if highlight:
             for c in highlight:
-                image = cv2.rectangle(image, (c[0], c[1]), (c[2], c[3]), Config.COLOR_HIGHLIGHT, 10)
+                image = cv2.rectangle(image, (c[0], c[1]), (c[2], c[3]), Config.COLOR_HIGHLIGHT, 4)
         image = cv2.resize(image, (self.s.pw//fract, self.s.ph//fract))
         return image
 

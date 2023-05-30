@@ -124,7 +124,7 @@ class Algorithm2(Algorithm):
                     # the variance is too low or the correlation
                     color = Config.COLOR_FILLER
                 else:
-                    color = Config.COLOR_HIGHLIGHT
+                    color = Config.COLOR_NORMAL
                     vias.append((cirx, ciry))
                 cv2.circle(output, (round(cirx), round(ciry)), round(cirr), color, 3)
                 cv2.putText(output, str(j), (max(0, round(cirx)), max(0, round(ciry))), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 0, 0), 1)

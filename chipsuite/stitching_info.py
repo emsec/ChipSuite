@@ -51,15 +51,10 @@ class StitchingInfo:
         self.st_height = max(x["position"][1] for x in self.stitching.values())
 
         # tiles
-        if "demo" in self.image_folder:
-            self.t_width = list(self.stitching.keys())[0][0] + 1
-            self.t_height = list(self.stitching.keys())[0][1] + 1
-            self.t_count = 1
-        else:
-            self.t_width = max(x[0] for x in self.stitching.keys())+1
-            self.t_height = max(x[1] for x in self.stitching.keys())+1
-            self.t_count = self.t_width * self.t_height
-            assert self.t_count == len(self.stitching), "Stitching textfile seems to be incomplete, as not every position in the grid has exactly one entry in the file"
+        self.t_width = max(x[0] for x in self.stitching.keys())+1
+        self.t_height = max(x[1] for x in self.stitching.keys())+1
+        self.t_count = self.t_width * self.t_height
+        assert self.t_count == len(self.stitching) or "demo" in self.image_folder, "Stitching textfile seems to be incomplete, as not every position in the grid has exactly one entry in the file"
 
         # take first tile's size as a global tile size (all tiles are of the same size!)
         image = cv2.imread(os.path.join(self.image_folder, list(self.stitching.values())[0]["file"]))
