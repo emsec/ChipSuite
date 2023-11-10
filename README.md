@@ -5,7 +5,8 @@ allows for a direct reproducibility of the studies.
 
 Find our related publication "Red Team vs. Blue Team: A Real-World Hardware
 Trojan Detection Case Study Across Four Modern CMOS Technology Generations"
-here: [ieee](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.00044) /
+here: [ieee xplore](https://ieeexplore.ieee.org/document/10179341) /
+[ieee computer](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.00044) /
 [eprint](https://eprint.iacr.org/2022/1720)
 
 In case the replaced cell instances need to be known for further studies
@@ -200,7 +201,8 @@ Academic Context
 ================
 
 If you want to cite the work please don't hesitate to cite the original paper
-([ieee](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.00044) /
+([ieee xplore](https://ieeexplore.ieee.org/document/10179341) /
+[ieee computer](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.00044) /
 [eprint](http://eprint.iacr.org/2022/1720)).
 ```latex
 @inproceedings {2023puschner,
